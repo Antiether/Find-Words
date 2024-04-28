@@ -101,7 +101,7 @@ for (int i = 0; i < 24; i++) {
                 return true;
             }
         }
-    }
+}
 
 // Mengecek Secara Diagonal (kanan atas)
 for (int i = 0; i < 24; i++) {
@@ -117,7 +117,7 @@ for (int i = 0; i < 24; i++) {
                 return true;
             }
         }
-    }
+}
     
 // Mengecek Secara Diagonal (kiri bawah)
 for (int i = 0; i <= 24; i++) {
@@ -133,7 +133,7 @@ for (int i = 0; i <= 24; i++) {
                 return true;
             }
         }
-    }
+}
     
 // Check diagonally (down-right)
 for (int i = 0; i <= 24; i++) {
@@ -149,7 +149,7 @@ for (int i = 0; i <= 24; i++) {
                 return true;
             }
         }
-    }
+}
     return false;
 }
 
