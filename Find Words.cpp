@@ -84,3 +84,38 @@ int kataLen = strlen(word);
            }
        }
     }
+return false;
+}
+
+int main();
+{
+    int banyak_kata;
+
+
+    cin >> banyak_kata;
+    cin.ignore(); 
+
+    char kata[banyak_kata][25]; 
+
+    for (int i = 0; i < banyak_kata; i++) 
+	{
+        cin.getline(kata[i], 25);
+        kapital(kata[i]); 
+      
+    }
+
+    for (int i = 0; i < banyak_kata; i++) 
+	{
+        if (cek_kata(kata[i])) {
+        	
+            cout << "Ada" << endl;
+        } else 
+		{
+            cout << "Tidak Ada" << endl;
+        }
+        
+    }
+
+
+ return 0;
+}
