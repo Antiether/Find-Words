@@ -87,6 +87,72 @@ int kataLen = strlen(word);
 return false;
 }
 
+// Mengecek Secara Diagonal (kiri atas)
+for (int i = 0; i < 24; i++) {
+	for (int j = 0; j < 24; j++) {
+            bool found = true;
+            for (int k = 0; k < kataLen; k++) {
+                if (data_matriks[i - k][j - k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+
+// Mengecek Secara Diagonal (kanan atas)
+for (int i = 0; i < 24; i++) {
+        for (int j = 0; j <= 24; j++) {
+            bool found = true;
+            for (int k = 0; k < kataLen; k++) {
+                if (data_matriks[i - k][j + k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    
+// Mengecek Secara Diagonal (kiri bawah)
+for (int i = 0; i <= 24; i++) {
+        for (int j = 0; j < 24; j++) {
+            bool found = true;
+            for (int k = 0; k < kataLen; k++) {
+                if (data_matriks[i + k][j - k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    
+// Check diagonally (down-right)
+for (int i = 0; i <= 24; i++) {
+        for (int j = 0; j <= 24; j++) {
+            bool found = true;
+            for (int k = 0; k < kataLen; k++) {
+                if (data_matriks[i + k][j + k] != word[k]) {
+                    found = false;
+                    break;
+                }
+            }
+            if (found) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
 int main();
 {
     int banyak_kata;
