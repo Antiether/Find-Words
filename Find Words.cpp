@@ -2,7 +2,7 @@
 #include <cstring>
 using namespace std;
 
-//make data be a capital
+//mengubah data menjadi huruf kapital
 void kapital (char* str) 
 {
     for (int i = 0; str[i] != '\0'; i++) 
@@ -40,11 +40,11 @@ bool cek_kata(const char* word)
         "HQPYLWHFMNFFUFPSWXNUMMV"
     };
 
+    int kataLen = strlen(word);
 
-int kataLen = strlen(word);
 
-//mengecek secara vertikal
-  for (int i = 0; i <= 24; i++) 
+    // Mengecek secara vertikal
+    for (int i = 0; i <= 24; i++) 
 	{
         for (int j = 0; j < 24; j++) 
 		{
@@ -63,9 +63,9 @@ int kataLen = strlen(word);
             }
         }
     }
-
- // menegcek secara horizontal
-  for (int i = 0; i < 24; i++) 
+    
+    // mengecek secara horizontal
+    for (int i = 0; i < 24; i++) 
 	{ 
        for (int j = 0; j <= 24 - kataLen; j++) 
 	   { 
@@ -84,76 +84,97 @@ int kataLen = strlen(word);
            }
        }
     }
-return false;
-}
-
-// Mengecek Secara Diagonal (kiri atas)
-for (int i = 0; i < 24; i++) {
-	for (int j = 0; j < 24; j++) {
-            bool found = true;
-            for (int k = 0; k < kataLen; k++) {
-                if (data_matriks[i - k][j - k] != word[k]) {
-                    found = false;
-                    break;
-                }
-            }
-            if (found) {
-                return true;
-            }
-        }
-}
-
-// Mengecek Secara Diagonal (kanan atas)
-for (int i = 0; i < 24; i++) {
-        for (int j = 0; j <= 24; j++) {
-            bool found = true;
-            for (int k = 0; k < kataLen; k++) {
-                if (data_matriks[i - k][j + k] != word[k]) {
-                    found = false;
-                    break;
-                }
-            }
-            if (found) {
-                return true;
-            }
-        }
-}
     
-// Mengecek Secara Diagonal (kiri bawah)
-for (int i = 0; i <= 24; i++) {
-        for (int j = 0; j < 24; j++) {
+
+    //mengecek secara diagonal (kiri atas)
+    for (int i = 0; i < 24; i++) 
+	{
+        for (int j = 0; j < 24; j++) 
+		{
             bool found = true;
-            for (int k = 0; k < kataLen; k++) {
-                if (data_matriks[i + k][j - k] != word[k]) {
+            for (int k = 0; k < kataLen; k++) 
+			{
+                if (data_matriks[i - k][j - k] != word[k]) 
+				{
                     found = false;
                     break;
                 }
             }
-            if (found) {
+            if (found) 
+			{
                 return true;
             }
         }
-}
+    }
+
+    //mengecek secara diagonal (kanan atas)
+    for (int i = 0; i < 24; i++) 
+	{
+        for (int j = 0; j <= 24; j++) 
+		{
+            bool found = true;
+            for (int k = 0; k < kataLen; k++) 
+			{
+                if (data_matriks[i - k][j + k] != word[k]) 
+				{
+                    found = false;
+                    break;
+                }
+            }
+            if (found) 
+			{
+                return true;
+            }
+        }
+    }
     
-// Check diagonally (down-right)
-for (int i = 0; i <= 24; i++) {
-        for (int j = 0; j <= 24; j++) {
+    //mengecek secara diagonal (kiri bawah)
+    for (int i = 0; i <= 24; i++) 
+	{
+        for (int j = 0; j < 24; j++) 
+		{
             bool found = true;
-            for (int k = 0; k < kataLen; k++) {
-                if (data_matriks[i + k][j + k] != word[k]) {
+            for (int k = 0; k < kataLen; k++) 
+			{
+                if (data_matriks[i + k][j - k] != word[k]) 
+				{
                     found = false;
                     break;
                 }
             }
-            if (found) {
+            if (found) 
+			{
                 return true;
             }
         }
-}
+    }
+    
+    //mengecek secara diagonal (kanan bawah)
+    for (int i = 0; i <= 24; i++) 
+	{
+        for (int j = 0; j <= 24; j++) 
+		{
+            bool found = true;
+            for (int k = 0; k < kataLen; k++) 
+			{
+                if (data_matriks[i + k][j + k] != word[k]) 
+				{
+                    found = false;
+                    break;
+                }
+            }
+            if (found) 
+			{
+                return true;
+            }
+        }
+    }
+
+   
     return false;
 }
 
-int main();
+int main() 
 {
     int banyak_kata;
 
